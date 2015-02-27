@@ -1,0 +1,9 @@
+C:\Users\Orangestar\Documents\visual studio 2013\Projects\Snapper\Snapper\bin\Release\snapper.exe.config
+C:\Users\Orangestar\Documents\visual studio 2013\Projects\Snapper\Snapper\bin\Release\options.xml
+C:\Users\Orangestar\Documents\visual studio 2013\Projects\Snapper\Snapper\bin\Release\snapper.exe
+C:\Users\Orangestar\Documents\visual studio 2013\Projects\Snapper\Snapper\bin\Release\snapper.pdb
+C:\Users\Orangestar\Documents\visual studio 2013\Projects\Snapper\Snapper\obj\Release\snapper.Form1.resources
+C:\Users\Orangestar\Documents\visual studio 2013\Projects\Snapper\Snapper\obj\Release\snapper.Properties.Resources.resources
+C:\Users\Orangestar\Documents\visual studio 2013\Projects\Snapper\Snapper\obj\Release\Snapper.csproj.GenerateResource.Cache
+C:\Users\Orangestar\Documents\visual studio 2013\Projects\Snapper\Snapper\obj\Release\snapper.exe
+C:\Users\Orangestar\Documents\visual studio 2013\Projects\Snapper\Snapper\obj\Release\snapper.pdb
