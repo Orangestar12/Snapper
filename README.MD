@@ -12,6 +12,8 @@ Snapper is great for Ludum Dare types and artists who want to make frame-by-fram
 
 To use Snapper, simply begin the program . Enter the amount of time you would like Snapper to wait inbetween screenshots, use the "Change Directory" dialogue to select the folder you wish screenshots to be saved, and press "Start". You will recieve a notification each time a screenshot is saved.
 
+![Image of Snapper notification.](http://i.imgur.com/207tucG.png)
+
 ##Notes
 
 As of right now, Snapper requires an `options.xml` file to be saved in the same directory as it. In the future, it will create this file itself if it can't find it. However right now, it'll probably crash.
