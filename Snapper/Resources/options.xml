@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<options>
+  <time>
+    <hours>0</hours>
+    <minutes>15</minutes>
+    <seconds>0</seconds>
+  </time>
+  <directory>C:/</directory>
+  <notifications>true</notifications>
+  <firsttime>true</firsttime>
+</options>

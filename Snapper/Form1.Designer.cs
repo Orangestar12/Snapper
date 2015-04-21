@@ -36,6 +36,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.startSnappingNowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseSnappingTemporarilyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopSnappingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitSnapperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hrsbox = new System.Windows.Forms.NumericUpDown();
@@ -54,8 +55,9 @@
             this.startbtn = new System.Windows.Forms.Button();
             this.timeout_help = new System.Windows.Forms.Button();
             this.save_help = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.stopSnappingMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.savebtn = new System.Windows.Forms.Button();
+            this.showNotifBox = new System.Windows.Forms.CheckBox();
+            this.notifications_help = new System.Windows.Forms.Button();
             this.notification_contextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hrsbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minbox)).BeginInit();
@@ -79,11 +81,11 @@
             this.toolStripSeparator1,
             this.startSnappingNowToolStripMenuItem,
             this.pauseSnappingTemporarilyToolStripMenuItem,
-            this.stopSnappingMenuItem1,
+            this.stopSnappingMenuItem,
             this.toolStripSeparator2,
             this.exitSnapperToolStripMenuItem});
             this.notification_contextMenu.Name = "contextMenuStrip1";
-            this.notification_contextMenu.Size = new System.Drawing.Size(222, 148);
+            this.notification_contextMenu.Size = new System.Drawing.Size(222, 126);
             // 
             // showOptionsToolStripMenuItem
             // 
@@ -110,6 +112,13 @@
             this.pauseSnappingTemporarilyToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.pauseSnappingTemporarilyToolStripMenuItem.Text = "Pause snapping temporarily";
             this.pauseSnappingTemporarilyToolStripMenuItem.Click += new System.EventHandler(this.pauseSnappingTemporarilyToolStripMenuItem_Click);
+            // 
+            // stopSnappingMenuItem
+            // 
+            this.stopSnappingMenuItem.Name = "stopSnappingMenuItem";
+            this.stopSnappingMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.stopSnappingMenuItem.Text = "Stop Snapping";
+            this.stopSnappingMenuItem.Click += new System.EventHandler(this.stopSnappingMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -238,20 +247,21 @@
             this.button1.TabIndex = 11;
             this.button1.Text = "Change Directory";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.directoryButton_Click);
             // 
             // dir_text
             // 
             this.dir_text.BackColor = System.Drawing.SystemColors.Window;
             this.dir_text.Location = new System.Drawing.Point(3, 3);
             this.dir_text.Name = "dir_text";
-            this.dir_text.ReadOnly = true;
             this.dir_text.Size = new System.Drawing.Size(179, 20);
             this.dir_text.TabIndex = 10;
+            this.dir_text.TextChanged += new System.EventHandler(this.dir_textChange);
             // 
             // quitbtn
             // 
-            this.quitbtn.Location = new System.Drawing.Point(3, 210);
+            this.quitbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.quitbtn.Location = new System.Drawing.Point(3, 254);
             this.quitbtn.Name = "quitbtn";
             this.quitbtn.Size = new System.Drawing.Size(60, 23);
             this.quitbtn.TabIndex = 10;
@@ -261,7 +271,8 @@
             // 
             // startbtn
             // 
-            this.startbtn.Location = new System.Drawing.Point(150, 210);
+            this.startbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.startbtn.Location = new System.Drawing.Point(150, 254);
             this.startbtn.Name = "startbtn";
             this.startbtn.Size = new System.Drawing.Size(58, 23);
             this.startbtn.TabIndex = 11;
@@ -290,29 +301,48 @@
             this.save_help.UseVisualStyleBackColor = true;
             this.save_help.Click += new System.EventHandler(this.save_help_Click);
             // 
-            // button2
+            // savebtn
             // 
-            this.button2.Location = new System.Drawing.Point(77, 210);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(59, 23);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Save";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button2_Click);
+            this.savebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.savebtn.Location = new System.Drawing.Point(77, 254);
+            this.savebtn.Name = "savebtn";
+            this.savebtn.Size = new System.Drawing.Size(59, 23);
+            this.savebtn.TabIndex = 14;
+            this.savebtn.Text = "Save";
+            this.savebtn.UseVisualStyleBackColor = true;
+            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
-            // stopSnappingMenuItem1
+            // showNotifBox
             // 
-            this.stopSnappingMenuItem1.Name = "stopSnappingMenuItem1";
-            this.stopSnappingMenuItem1.Size = new System.Drawing.Size(221, 22);
-            this.stopSnappingMenuItem1.Text = "Stop Snapping";
-            this.stopSnappingMenuItem1.Click += new System.EventHandler(this.stopSnappingMenuItem1_Click);
+            this.showNotifBox.AutoSize = true;
+            this.showNotifBox.Checked = true;
+            this.showNotifBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.showNotifBox.Location = new System.Drawing.Point(9, 217);
+            this.showNotifBox.Name = "showNotifBox";
+            this.showNotifBox.Size = new System.Drawing.Size(177, 17);
+            this.showNotifBox.TabIndex = 15;
+            this.showNotifBox.Text = "Display notification on Snapshot";
+            this.showNotifBox.UseVisualStyleBackColor = true;
+            this.showNotifBox.CheckedChanged += new System.EventHandler(this.showNotifBox_CheckedChanged);
+            // 
+            // notifications_help
+            // 
+            this.notifications_help.Location = new System.Drawing.Point(184, 213);
+            this.notifications_help.Name = "notifications_help";
+            this.notifications_help.Size = new System.Drawing.Size(24, 23);
+            this.notifications_help.TabIndex = 16;
+            this.notifications_help.Text = "?";
+            this.notifications_help.UseVisualStyleBackColor = true;
+            this.notifications_help.Click += new System.EventHandler(this.notifications_help_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(211, 245);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(211, 289);
+            this.Controls.Add(this.notifications_help);
+            this.Controls.Add(this.showNotifBox);
+            this.Controls.Add(this.savebtn);
             this.Controls.Add(this.save_help);
             this.Controls.Add(this.timeout_help);
             this.Controls.Add(this.startbtn);
@@ -368,8 +398,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.NotifyIcon notif_icon;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ToolStripMenuItem stopSnappingMenuItem1;
+        private System.Windows.Forms.Button savebtn;
+        private System.Windows.Forms.ToolStripMenuItem stopSnappingMenuItem;
+        private System.Windows.Forms.CheckBox showNotifBox;
+        private System.Windows.Forms.Button notifications_help;
     }
 }
 
